@@ -31,13 +31,12 @@
             z-index: -1;
         }
 
-        
         @keyframes scroll {
           0% {background-position: 0 0;}
           100% {background-position: 5000px 2000px;}
         }
 
-          .blur-background {
+        .blur-background {
           position: fixed;
           top: 0;
           left: 0;
@@ -173,12 +172,11 @@
 
         .extras-text {
             color: white;
-            font-weight: boldu
+            font-weight: bold;
             margin-bottom: 5px;
         }
     </style>
 </head>
-<img src="protegent-logo.png" alt="imagine" class="protegent-logo">
 <body>
     <header>
         <h1>Protegent 360 Advansed Website Blocker</h1>
@@ -186,12 +184,25 @@
 
     <div class="container">
         <div class="content-box">
-            <h2>Due to advanced Protegent 360 website blocker you website blocked due to not being allowed by administrater</h2>
-            <p>website blocked: [[blocked_webpage]]</p>
-            <a href="https://protegent360.com/" class="btn">Return to Protegent360.cim</a>
+            <h2>Due to advanced Protegent 360 website blocker your website is blocked due to not being allowed by the administrator</h2>
+            <p id="blockedWebsite">website blocked: </p>
+            <a href="https://protegent360.com/" class="btn">Return to Protegent360.com</a>
             <img src="proto.png" alt="YOUR BROWSER FUCKING SMELLS" class="proto">
         </div>
     </div>
-</body>
 
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const blockedWebsite = getQueryParam('blocked');
+            if (blockedWebsite) {
+                document.getElementById('blockedWebsite').innerText += blockedWebsite;
+            }
+        });
+    </script>
+</body>
 </html>
