@@ -179,13 +179,13 @@
 </head>
 <body>
     <header>
-        <h1>Protegent 360 Advansed Website Blocker</h1>
+        <h1>Protegent 360 Advanced Website Blocker</h1>
     </header>
 
     <div class="container">
         <div class="content-box">
             <h2>Due to advanced Protegent 360 website blocker your website is blocked due to not being allowed by the administrator</h2>
-            <p id="blockedWebsite">website blocked: </p>
+            <p id="blockedWebsite">website blocked: [[blocked_webpage]]</p>
             <a href="https://protegent360.com/" class="btn">Return to Protegent360.com</a>
             <img src="proto.png" alt="YOUR BROWSER FUCKING SMELLS" class="proto">
         </div>
@@ -200,7 +200,9 @@
         document.addEventListener("DOMContentLoaded", function() {
             const blockedWebsite = getQueryParam('blocked');
             if (blockedWebsite) {
-                document.getElementById('blockedWebsite').innerText += blockedWebsite;
+                document.getElementById('blockedWebsite').innerText = `website blocked: ${blockedWebsite}`;
+            } else {
+                console.error('Blocked parameter not found');
             }
         });
     </script>
